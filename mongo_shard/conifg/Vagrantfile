@@ -1,0 +1,20 @@
+Vagrant::Config.run do |config| 
+	config.vm.define :config1 do |config1_config|
+		config1_config.vm.customize ["modifyvm", :id, "--name", "config1", "--memory", "512"] 
+		config1_config.vm.box = "mongovm"
+		config1_config.vm.host_name = "config1"
+        config1_config.vm.network :hostonly, "192.168.2.21"
+	end
+	config.vm.define :config2 do |config2_config|
+		config2_config.vm.customize ["modifyvm", :id, "--name", "config2", "--memory", "512"] 
+		config2_config.vm.box = "mongovm"
+		config2_config.vm.host_name = "config2"
+        config2_config.vm.network :hostonly, "192.168.2.22"
+	 end
+	config.vm.define :config3 do |config3_config|
+		config3_config.vm.customize ["modifyvm", :id, "--name", "config3", "--memory", "512"] 
+		config3_config.vm.box = "mongovm"
+		config3_config.vm.host_name = "config3"
+        config3_config.vm.network :hostonly, "192.168.2.23"
+	 end
+end

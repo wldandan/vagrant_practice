@@ -1,0 +1,14 @@
+Vagrant::Config.run do |config| 
+	config.vm.define :rep2a do |rep2a_config|
+		rep2a_config.vm.customize ["modifyvm", :id, "--name", "rep2a", "--memory", "512"] 
+		rep2a_config.vm.box = "mongovm"
+		rep2a_config.vm.host_name = "rep2a"
+        rep2a_config.vm.network :hostonly, "192.168.2.51"
+	end
+	config.vm.define :rep2b do |rep2b_config|
+		rep2b_config.vm.customize ["modifyvm", :id, "--name", "rep2b", "--memory", "512"] 
+		rep2b_config.vm.box = "mongovm"
+		rep2b_config.vm.host_name = "rep2b"
+        rep2b_config.vm.network :hostonly, "192.168.2.52"
+	 end
+end

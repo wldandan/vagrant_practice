@@ -1,0 +1,14 @@
+Vagrant::Config.run do |config| 
+	config.vm.define :router1 do |router1_config|
+		router1_config.vm.customize ["modifyvm", :id, "--name", "router1", "--memory", "512"] 
+		router1_config.vm.box = "mongovm"
+		router1_config.vm.host_name = "router1"
+        router1_config.vm.network :hostonly, "192.168.2.31"
+	end
+	#config.vm.define :router2 do |router2_config|
+#		router2_config.vm.customize ["modifyvm", :id, "--name", "router2", "--memory", "512"] 
+#		router2_config.vm.box = "mongovm"
+#		router2_config.vm.host_name = "router2"
+ #       router2_config.vm.network :hostonly, "192.168.2.32"
+#	 end
+end
